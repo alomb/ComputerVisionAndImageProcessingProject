@@ -1,3 +1,5 @@
 report/*
 !report/*.tex
 !report/src/*
+
+*.ipynb_checkpoints/
