@@ -1,1 +1,1 @@
-The project of the course of "Computer Vision and Image Processing" course, DISI, University of Bologna, Bologna 2020. 
+The project of the "Image Processing and Computer Vision" course, DISI, University of Bologna, Bologna 2020. 
