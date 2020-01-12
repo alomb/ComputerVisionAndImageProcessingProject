@@ -3,3 +3,5 @@ report/*
 !report/src/*
 
 *.ipynb_checkpoints/
+
+*.zip
