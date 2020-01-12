@@ -368,7 +368,7 @@
 2019-2020}\label{image-processing-and-computer-vision-2019-2020}}
 
 \textbf{Prof.~Luigi Di Stefano}\\
-luigi.distefano@unibo.it
+\href{mailto:luigi.distefano@unibo.it}{luigi.distefano@unibo.it}
 
 Master Degree in Artificial Intelligence\\
 DISI - University of Bologna, Bologna
@@ -377,7 +377,7 @@ DISI - University of Bologna, Bologna
 Visual Inspection of Motorcycle Connecting Rods\\
 \textbf{Student}\\
 Alessandro Lombardi\\
-alessandro.lombardi5@studio.unibo.it
+\href{mailto:alessandro.lombardi5@studio.unibo.it}{alessandro.lombardi5@studio.unibo.it}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{1}{\boxspacing}
@@ -541,18 +541,25 @@ tuning any parameter.
     \end{center}
     { \hspace*{\fill} \\}
     
-    \textbf{strategies} - To classify the rods in the two classes A or B it
+    \textbf{strategies} \\
+\begin{itemize}
+    \item To classify the rods in the two classes A or B it
 is necessary to count the holes. A first connected components labeling
 is applied to extract the rods, then, for each rod, another one is
 applied to the negative of the image containing only the specific rod to
-find its holes. - The first connected components labeling finds also for
-each rod its barycentre. - The second connected components labeling
+find its holes.
+    \item The first connected components labeling finds also for
+each rod its barycentre.
+    \item The second connected components labeling
 finds also barycentre and diameter (computed from the area) of the
-holes. - To find the orientation it is necessary to find firstly the
+holes. 
+    \item To find the orientation it is necessary to find firstly the
 major axis and then the angle between it and the horizontal axis. The
 major and minor axes are found deploying the covariance matrix obtained
 using the second order central moments of the image and the centroid of
 the blob (that can be computed using moments too)
+
+From \url{https://en.wikipedia.org/wiki/Image_moment}
 
 $\mu{}_2{}_0 = M{}_2{}_0 - \cfrac{M{}_1{}_0}{M{}_0{}_0}M{}_1{}_0$ \\
 $\mu{}_0{}_2 = M{}_0{}_2 - \cfrac{M{}_0{}_1}{M{}_0{}_0}M{}_0{}_1$ \\
@@ -572,9 +579,7 @@ $\mu'{}_1{}_1 = \cfrac{\mu{}_1{}_1}{\mu{}_0{}_0}$ \\
     $\theta = \cfrac{1}{2}arctan(\cfrac{2\mu'{}_1{}_1}{\mu'{}_2{}_0 - \mu'{}_0{}_2})$     
 \end{center}
 
-\begin{verbatim}
-https://en.wikipedia.org/wiki/Image_moment
-\end{verbatim}
+\end{itemize}
 
 \begin{itemize}
 \tightlist
@@ -954,14 +959,20 @@ Labels found 3
 \end{Verbatim}
 \end{tcolorbox}
 
-    \textbf{Strategies} The previous implementation already detect objects
+    \textbf{Strategies} \\
+The previous implementation already detect objects
 without holes like screws, raising an exception, because in task 1 are
 not considered legal. The problem is then limited to detect washers. To
-solve this problem is possible to: - check if the detected object has a
+solve this problem is possible to:
+\begin{itemize}
+    \item check if the detected object has a
 circular form, extracting the contour and applying the Haralick's
-Circularity - check if the detected object has a circular form, using
-the Hough Transform - check if the distance between the object's
+Circularity
+    \item check if the detected object has a circular form, using
+the Hough Transform
+    \item check if the distance between the object's
 barycentre and its hole barycentre is small
+\end{itemize}
 
 All the techniques need to set parameters, the first one need a single
 threshold, the second one a lot of parameters to identify the circles
@@ -1034,8 +1045,8 @@ distance transformation as a RGB image and the labelled connected
 components considering that the unknown region must have 0 as a label.
 
 Details on:\\
-https://opencv-python-tutroals.readthedocs.io/en/latest/py\_tutorials/py\_imgproc/py\_watershed/py\_watershed.html\\
-http://www.cmm.mines-paristech.fr/\textasciitilde beucher/wtshed.html
+\url{https://opencv-python-tutroals.readthedocs.io/en/latest/py\_tutorials/py\_imgproc/py\_watershed/py\_watershed.html}\\
+\url{http://www.cmm.mines-paristech.fr/\textasciitilde beucher/wtshed.html}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{19}{\boxspacing}
